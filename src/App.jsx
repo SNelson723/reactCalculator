@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import DigitButton from "./DigitButton";
 import OperationButton from "./OperationButton";
+import { evaluate, formatOperand } from "./helperFunctions";
 
 export const ACTIONS = {
   ADD_DIGIT: 'add-digit',
@@ -95,48 +96,6 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-const evaluate = ({ currentOperand, previousOperand, operation }) => {
-  const prev = parseFloat(previousOperand);
-  const current = parseFloat(currentOperand);
-
-  if (isNaN(prev) || isNaN(current)) return '';
-
-  let computation = '';
-  switch (operation) {
-    case '+':
-      computation = prev + current;
-      break;
-    case '-':
-      computation = prev - current;
-      break;
-    case '*':
-      computation = prev * current;
-      break;
-    case '÷':
-      computation = prev / current;
-      break;
-  }
-
-  return computation.toString();
-};
-
-const integerFormatter = new Intl.NumberFormat('en-us', {
-  maximumFractionDigits: 0
-});
-
-const formatOperand = (operand) => {
-  // if there is nothing to format
-  if (operand == null) return;
-
-  const [integer, decimal] = operand.split('.');
-
-  // if there is no decimal
-  if (decimal == null) return integerFormatter.format(integer);
-
-  // if there is a decimal
-  return `${integerFormatter.format(integer)}.${decimal}`
-};
-
 const App = () => {
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(reducer, {});
 
@@ -173,6 +132,6 @@ const App = () => {
     </div>
 
   )
-}
+};
 
 export default App;
