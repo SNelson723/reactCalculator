@@ -1,6 +1,3 @@
-import { CgMathDivide } from "react-icons/cg";
-import './App.css';
-
 const App = () => {
 
   return (
