@@ -1,3 +1,4 @@
+import { CgMathDivide } from "react-icons/cg";
 
 const App = () => {
 
@@ -15,7 +16,7 @@ const App = () => {
 
       <button className="span-two">AC</button>
       <button>DEL</button>
-      <button>DEL</button>
+      <button><CgMathDivide /></button>
     </div>
 
   )
