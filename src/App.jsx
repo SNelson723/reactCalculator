@@ -3,13 +3,8 @@ const App = () => {
   return (
     <div className="calculator-grid">
       <div className="output">
-        <div className="previous-operand">
-          123,234
-        </div>
-
-        <div className="current-operand">
-          432,234
-        </div>
+        <div className="previous-operand"></div>
+        <div className="current-operand"></div>
       </div>
 
       <button className="span-two">AC</button>
