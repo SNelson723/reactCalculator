@@ -4,11 +4,11 @@ const App = () => {
     <div className="calculator-grid">
       <div className="output">
         <div className="previous-operand">
-
+          123,234
         </div>
 
         <div className="current-operand">
-
+          432,234
         </div>
       </div>
 
