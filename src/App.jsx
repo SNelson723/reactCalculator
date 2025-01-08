@@ -1,7 +1,21 @@
 import { useReducer } from "react";
 
-const reducer = (state, action) => {
+export const ACTIONS = {
+  ADD_DIGIT: 'add-digit',
+  CLEAR: 'clear',
+  DELETE_DIGIT: 'delete_digit',
+  CHOOSE_OPERATION: 'choose_operation',
+  EVALUATE: 'evaluate'
+};
 
+const reducer = (state, { type, payload }) => {
+  switch(type) {
+    case ACTIONS.ADD_DIGIT:
+      return{
+        ...state,
+        currentOperand: `${currentOperand || ""}${payload.digit}`
+      }
+  }
 };
 
 const App = () => {
@@ -10,7 +24,7 @@ const App = () => {
   return (
     <div className="calculator-grid">
       <div className="output">
-        <div className="previous-operand">{previousOperand}</div>
+        <div className="previous-operand">{previousOperand} {operation}</div>
         <div className="current-operand">{currentOperand}</div>
       </div>
 
